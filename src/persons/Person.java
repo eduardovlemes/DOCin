@@ -1,21 +1,32 @@
 package persons;
 
+import java.time.LocalDate;
+
 public class Person {
     private String name;
     private String lastName;
-    private Integer birthday;
+    private LocalDate birthday;
     private Double cpf;
     private String address;
+    private Integer age;
+    private static Integer counter = 0;
     private Integer personId;
 
-    public Person(String name, String lastName, Integer birthday, Double cpf, String address, Integer personId){
+    public Person(String name, String lastName, LocalDate birthday, Double cpf, String address, Integer personId){
         this.name = name;
         this.lastName = lastName;
         this.birthday = birthday;
         this.cpf = cpf;
         this.address = address;
-        this.personId = personId;
+        this.age = counterAge();
+        this.personId = counter++;
     }
+
+    public Integer counterAge(){
+        this.age = LocalDate.now().getYear() - birthday.getYear();
+        return this.age;
+    }
+
     public Person (){}
 
     public String getName() {
