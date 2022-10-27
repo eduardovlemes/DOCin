@@ -6,13 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonList {
-    public static List<Person> persons = new ArrayList<>();
+    public static List<Person> collaborators = new ArrayList<>();
 
-    public static void addPerson(Person person){
-        persons.add(person);
+    public static void addCollaborator(Person person){
+        collaborators.add(person);
     }
-
-    public static Person turnBack(Integer personId){
-        return persons.get (personId);
+    public static Person returnCollaborator(Integer idPerson){
+        return collaborators.get (idPerson);
+    }
+    public static List<Person> returnAllCollaborator(){
+        return collaborators;
     }
 }
