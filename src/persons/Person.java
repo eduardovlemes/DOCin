@@ -3,37 +3,33 @@ package persons;
 import java.time.LocalDate;
 
 public class Person {
-    private String name;
+    private String firstname;
     private String lastName;
     private LocalDate birthday;
     private Double cpf;
     private String address;
     private Integer age;
-    private static Integer counter = 0;
-    private Integer personId;
+    private Integer id;
 
-    public Person(String name, String lastName, LocalDate birthday, Double cpf, String address, Integer personId){
-        this.name = name;
+    public Person(String firstname, String lastName, LocalDate birthday, Double cpf, String address, Integer id){
+        this.firstname = firstname;
         this.lastName = lastName;
         this.birthday = birthday;
         this.cpf = cpf;
         this.address = address;
         this.age = counterAge();
-        this.personId = counter++;
+        this.id = id;
     }
-
+    public Person (){}
     public Integer counterAge(){
         this.age = LocalDate.now().getYear() - birthday.getYear();
         return this.age;
     }
-
-    public Person (){}
-
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
     public String getLastName() {
         return lastName;
@@ -41,10 +37,10 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public Integer getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
-    public void setBirthday(Integer birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
     public Double getCpf() {
@@ -59,14 +55,16 @@ public class Person {
     public void setAddress(String address) {
         this.address = address;
     }
-    public Integer getPersonId() {
-        return personId;
-    }
-    public void setPersonId(Integer personId) {
-        this.personId = personId;
-    }
     @Override
-    public String toString(){
-        return "Pessoa{"+"Nome='"+ name + '\'' +", Sobrenome=" + lastName +", Data de Nascimento=" + birthday +", CPF=" + cpf +",  Endereço=" + address +", Identificador Pessoal=" + personId +'}';
+    public String toString() {
+        return "Person{" +
+                "firstname='" + firstname + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", cpf=" + cpf +
+                ", address='" + address + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                '}';
     }
 }
