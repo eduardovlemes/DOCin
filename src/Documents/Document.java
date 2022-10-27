@@ -14,8 +14,16 @@ public class Document {
         this.documentLink = documentLink;
         this.documentState = documentState;
     }
+
     @Override
-    public String toString(){
-        return "Documento{" + "Título do documento="+ documentTitle + '\'' + ",Link do documento=" + documentLink + '\'' + ", Estado do documento=" + documentState + ", Identificador do documento=" + documentId + ", Identificador do criador=" + personId + ", Identificador do responsável=" + supervisorId + '}';
+    public String toString() {
+        return "Document{" +
+                "documentId=" + documentId +
+                ", supervisorId=" + supervisorId +
+                ", personId=" + personId +
+                ", documentTitle='" + documentTitle + '\'' +
+                ", documentLink='" + documentLink + '\'' +
+                ", documentState='" + documentState + '\'' +
+                '}';
     }
 }
