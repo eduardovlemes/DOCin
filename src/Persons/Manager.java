@@ -8,8 +8,8 @@ import java.util.List;
 public class Manager extends Collaborator{
     private static List<Document> archivedDocuments = new ArrayList<>();
 
-    public Manager(String name, String lastName, Integer personId){
-        super(name, lastName, personId);
+    public Manager(String name, String lastName){
+        super(name, lastName);
     }
     @Override
     public void archiveDocuments (Document document){
