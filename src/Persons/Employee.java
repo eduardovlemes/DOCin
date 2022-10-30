@@ -12,19 +12,21 @@ public class Employee extends Collaborator{
     private static Integer counter = 0;
     private List<Document> documents = new ArrayList<>();
 
-    public Employee(String firstname, String lastName, LocalDate birthday, Double cpf, String address) {
+    public Employee(String firstname, String lastName, LocalDate birthday, String cpf, String address) {
         super(firstname, lastName, birthday, cpf, address,counter++);
         EmployeeList.addEmployee(this);
     }
+
     @Override
-    public void addDocuments(Document document){
+    public void addDocument(Document document){
         documents.add(document);
-        System.out.println("Documento criado pelo funcionário");
+        System.out.println("Documento criado pelo funcionário, nome:" + this.getFirstname());
         System.out.println(document);
         System.out.println(documents);
     }
-    public void requestApproval(Integer idSupervisor, Integer idDocument){
-        Supervisor approver = SupervisorList.returnSupervisor(idSupervisor);
-        approver.pendingDocuments(documents.get(idDocument));
+
+    public void requestApprovalDocument(Integer supervisorId, Integer documentId){
+            Supervisor approver = SupervisorList.returnSupervisor(supervisorId);
+            approver.addDocument(documents.get(documentId));
     }
 }
