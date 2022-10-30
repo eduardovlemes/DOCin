@@ -20,8 +20,10 @@ public class Employee extends Collaborator{
     @Override
     public void addDocument(Document document){
         documents.add(document);
-        System.out.println("Documento criado pelo funcionário, nome:" + this.getFirstname());
+        System.out.println("Documento criado pelo(a) funcionário(a) " + this.getFirstname());
+        System.out.println();
         System.out.println(document);
+        System.out.println();
         System.out.println(documents);
     }
 

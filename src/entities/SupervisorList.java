@@ -1,6 +1,5 @@
 package entities;
 
-import persons.Employee;
 import persons.Supervisor;
 
 import java.util.ArrayList;

@@ -21,12 +21,12 @@ public class Manager extends Collaborator{
     @Override
     public void addDocument(Document document){
         approvedDocuments.add(document);
-        System.out.println("Documento aprovado pelo supervisor, nome:" + this.getFirstname());
+        System.out.println("Documento aprovado pelo supervisor " + this.getFirstname());
         System.out.println(approvedDocuments);
     }
 
-    public void archiveDocuments (Integer documentId){
-        System.out.println("Documento arquivado pelo gerente, nome:" + this.getFirstname());
+    public void archiveDocument(Integer documentId){
+        System.out.println("Documento arquivado pelo gerente " + this.getFirstname());
         for (Document document: approvedDocuments) {
             if (Objects.equals(document.getDocumentId(),documentId)){
                 approvedDocuments.remove(document);
@@ -44,5 +44,4 @@ public class Manager extends Collaborator{
             }
         }
     }
-
 }

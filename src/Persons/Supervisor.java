@@ -12,30 +12,24 @@ import java.util.Objects;
 
 public class Supervisor extends Collaborator {
     private static Integer counter = 0;
+    private List<Document> documents = new ArrayList<>();
     private static List<Document> pendingDocuments = new ArrayList<>();
     private static List<Document> approvedDocuments = new ArrayList<>();
-
-
-
-
 
     public Supervisor(String firstname, String lastName, LocalDate birthday, String cpf, String address){
         super(firstname, lastName, birthday, cpf, address,counter++);
         SupervisorList.addSupervisor(this);
     }
 
-
-
-
     @Override
     public void addDocument(Document document){
         pendingDocuments.add(document);
-        System.out.println("Documento criado pelo funcionário, nome:" + this.getFirstname());
+        System.out.println("Documento criado pelo funcionário " + this.getFirstname());
         System.out.println(pendingDocuments);
     }
 
     public void approveDocument(Integer documentId){
-        System.out.println("Documento aprovado pelo supervisor, nome:" + this.getFirstname());
+        System.out.println("Documento aprovado pelo supervisor " + this.getFirstname());
         for (Document document: pendingDocuments) {
             if (Objects.equals(document.getDocumentId(),documentId)){
                 pendingDocuments.remove(document);
@@ -55,5 +49,4 @@ public class Supervisor extends Collaborator {
             }
         }
     }
-
 }

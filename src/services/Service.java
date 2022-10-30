@@ -16,6 +16,7 @@ public class Service {
     private static Employee employee;
     private static Supervisor supervisor;
     private static Manager manager;
+
     public void registerEmployee (){
         scanner = new Scanner(System.in);
         scanner2 = new Scanner(System.in);
@@ -23,9 +24,9 @@ public class Service {
         String firstNameEmployee = scanner.nextLine();
         System.out.println("Digite o sobrenome do(a) funcionário(a):");
         String lastNameEmployee = scanner.nextLine();
-        System.out.println("Digite a data de aniversário do(a) funcionário(a):");
+        System.out.println("Digite a data de aniversário(ex: 1990 enter 12 enter 31) do(a) funcionário(a):");
         LocalDate birthdayEmployee = LocalDate.of(scanner.nextInt(),scanner.nextInt(),scanner.nextInt());
-        System.out.println("Digite o CPF do(a) funcionário(a):");
+        System.out.println("Digite o CPF(ex:000.000.000-00) do(a) funcionário(a):");
         String cpfEmployee = scanner2.nextLine();
         System.out.println("Digite o endereço do(a) funcionário(a):");
         String addressEmployee = scanner2.nextLine();
@@ -49,9 +50,6 @@ public class Service {
         Service.employee.requestApprovalDocument(supervisorId, documentId);
     }
 
-
-
-
     public void registerSupervisor (){
         scanner = new Scanner(System.in);
         scanner2 = new Scanner(System.in);
@@ -59,42 +57,46 @@ public class Service {
         String firstNameSupervisor = scanner.nextLine();
         System.out.println("Digite o sobrenome do(a) supervisor(a):");
         String lastNameSupervisor = scanner.nextLine();
-        System.out.println("Digite a data de aniversário do(a) supervisor(a):");
+        System.out.println("Digite a data de aniversário(ex: 1990 enter 12 enter 31) do(a) supervisor(a):");
         LocalDate birthdaySupervisor = LocalDate.of(scanner.nextInt(),scanner.nextInt(),scanner.nextInt());
-        System.out.println("Digite o CFP do(a) supervisor(a):");
+        System.out.println("Digite o CFP(ex: 000.000.000-00) do(a) supervisor(a):");
         String cpfSupervisor = scanner2.nextLine();
         System.out.println("Digite o endereço do(a) supervisor(a):");
         String addressSupervisor = scanner2.nextLine();
         supervisor = new Supervisor(firstNameSupervisor, lastNameSupervisor, birthdaySupervisor, cpfSupervisor, addressSupervisor);
     }
     public void loadPendingDocument(Supervisor supervisor){
-        supervisor.addDocument(document);
+        Service.supervisor.addDocument(document);
     }
     public void approveDocument(Supervisor supervisor){
-        supervisor.approveDocument(document.getDocumentId());
+        Service.supervisor.approveDocument(document.getDocumentId());
     }
     public void rejectDocument(Supervisor supervisor){
-        supervisor.rejectDocument(document.getDocumentId(),employee.getId());
+        Service.supervisor.rejectDocument(document.getDocumentId(),employee.getId());
     }
 
-
-
-
-
-
     public void registerManager (){
-        Scanner scanner = new Scanner(System.in);
-        Scanner scanner2 = new Scanner(System.in);
+        scanner = new Scanner(System.in);
+        scanner2 = new Scanner(System.in);
         System.out.println("Digite o nome do(a) gerente:");
         String firstNameManager = scanner.nextLine();
         System.out.println("Digite o sobrenome do(a) gerente:");
         String lastNameManager = scanner.nextLine();
-        System.out.println("Digite a data de aniversário do(a) gerente:");
+        System.out.println("Digite a data de aniversário(ex: 1990 enter 12 enter 31) do(a) gerente:");
         LocalDate birthdayManager = LocalDate.of(scanner.nextInt(),scanner.nextInt(),scanner.nextInt());
-        System.out.println("Digite o CPF do(a) gerente:");
+        System.out.println("Digite o CPF(ex: 000.000.000-00) do(a) gerente:");
         String cpfManager = scanner2.nextLine();
         System.out.println("Digite o endereço do(a) gerente:");
         String addressManager = scanner2.nextLine();
-        Manager manager = new Manager(firstNameManager, lastNameManager, birthdayManager, cpfManager, addressManager);
+        manager = new Manager(firstNameManager, lastNameManager, birthdayManager, cpfManager, addressManager);
+    }
+    public void loadApproveDocument(Manager manager){
+        Service.manager.addDocument(document);
+    }
+    public void archiveApproveDocument(Manager manager){
+        Service.manager.archiveDocument(document.getDocumentId());
+    }
+    public void unArchiveApproveDocument(Manager manager){
+        Service.manager.unarchiveDocuments(document.getDocumentId(),supervisor.getId());
     }
 }

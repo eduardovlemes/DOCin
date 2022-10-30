@@ -14,6 +14,4 @@ public class Collaborator extends Person{
         PersonList.addCollaborator(this);
     }
     public void addDocument(Document document){}
-
-
 }
