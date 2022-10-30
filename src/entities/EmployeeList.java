@@ -10,8 +10,8 @@ public class EmployeeList {
     public static void addEmployee(Employee employee){
         employees.add(employee);
     }
-    public static Employee returnEmployee (Integer idEmployee){
-        return employees.get(idEmployee);
+    public static Employee returnEmployee (Integer employeeId){
+        return employees.get(employeeId);
     }
     public static List<Employee> returnAllEmployees(){
         return employees;
