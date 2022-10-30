@@ -6,12 +6,12 @@ public class Person {
     private String firstname;
     private String lastName;
     private LocalDate birthday;
-    private Double cpf;
+    private String cpf;
     private String address;
     private Integer age;
     private Integer id;
 
-    public Person(String firstname, String lastName, LocalDate birthday, Double cpf, String address, Integer id){
+    public Person(String firstname, String lastName, LocalDate birthday, String cpf, String address, Integer id){
         this.firstname = firstname;
         this.lastName = lastName;
         this.birthday = birthday;
@@ -43,10 +43,10 @@ public class Person {
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
-    public Double getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    public void setCpf(Double cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
     public String getAddress() {
@@ -55,6 +55,15 @@ public class Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
