@@ -11,8 +11,8 @@ public class SupervisorList {
     public static void addSupervisor (Supervisor supervisor){
         supervisors.add(supervisor);
     }
-    public static Supervisor returnSupervisor (Integer idSupervisor){
-    return supervisors.get(idSupervisor);}
+    public static Supervisor returnSupervisor (Integer supervisorId){
+    return supervisors.get(supervisorId);}
 
     public static List<Supervisor> returnAllSupervisors(){
         return supervisors;
