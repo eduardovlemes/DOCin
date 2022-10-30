@@ -1,29 +1,56 @@
 package documents;
 public class Document {
     private Integer documentId;
-    private Integer supervisorId;
-    private Integer personId;
+    private static Integer counter = 0;
     private String documentTitle;
     private String documentLink;
-    private String documentState;
-    public Document(Integer documentId, Integer supervisorId, Integer personId, String documentTitle, String documentLink, String documentState){
-        this.documentId = documentId;
-        this.supervisorId = supervisorId;
-        this.personId = personId;
+    private Boolean documentStatus = true;
+
+    public Document(String documentTitle, String documentLink){
+        this.documentId = counter++;
         this.documentTitle = documentTitle;
         this.documentLink = documentLink;
-        this.documentState = documentState;
+        this.documentStatus = documentStatus;
+    }
+
+    public Integer getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(Integer documentId) {
+        this.documentId = documentId;
+    }
+
+    public String getDocumentTitle() {
+        return documentTitle;
+    }
+
+    public void setDocumentTitle(String documentTitle) {
+        this.documentTitle = documentTitle;
+    }
+
+    public String getDocumentLink() {
+        return documentLink;
+    }
+
+    public void setDocumentLink(String documentLink) {
+        this.documentLink = documentLink;
+    }
+
+    public Boolean getDocumentStatus() {
+        return documentStatus;
+    }
+
+    public void setDocumentStatus(Boolean documentStatus) {
+        this.documentStatus = documentStatus;
     }
 
     @Override
     public String toString() {
         return "Document{" +
-                "documentId=" + documentId +
-                ", supervisorId=" + supervisorId +
-                ", personId=" + personId +
-                ", documentTitle='" + documentTitle + '\'' +
+                "documentTitle='" + documentTitle + '\'' +
                 ", documentLink='" + documentLink + '\'' +
-                ", documentState='" + documentState + '\'' +
+                ", documentStatus='" + documentStatus + '\'' +
                 '}';
     }
 }
